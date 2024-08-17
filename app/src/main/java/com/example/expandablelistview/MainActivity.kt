@@ -1,10 +1,11 @@
 package com.example.expandablelistview
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.expandablelistview.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(),MyExpandAdapter.ExpandAction {
     private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
     lateinit var map:HashMap<String,ArrayList<String>>
     lateinit var titelList:ArrayList<String>
@@ -12,7 +13,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         loadData()
-        val adapter=MyExpandAdapter(titelList,map)
+        val adapter=MyExpandAdapter(titelList,map,this)
         binding.expand.setAdapter(adapter)
     }
 
@@ -28,5 +29,10 @@ class MainActivity : AppCompatActivity() {
         map[titelList[1]]= arrayListOf("Aser","Dell","Mac Bock","HP","Asus")
         map[titelList[2]]= arrayListOf("Pendrive","Bag","Mause","Keybord")
         map[titelList[3]]= arrayListOf("Samsung","Artel","LG")
+    }
+
+    override fun childClick(name: String) {
+        val intent=Intent(this,MalumotActivity::class.java)
+        startActivity(intent)
     }
 }

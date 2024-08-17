@@ -7,7 +7,8 @@ import android.widget.BaseExpandableListAdapter
 import android.widget.TextView
 class MyExpandAdapter(
     private var titleList: ArrayList<String>,
-    private var map: HashMap<String, ArrayList<String>>
+    private var map: HashMap<String, ArrayList<String>>,
+    private var expandAction: ExpandAction
 ) : BaseExpandableListAdapter() {
 
     override fun getGroupCount(): Int {
@@ -61,15 +62,20 @@ class MyExpandAdapter(
         if (convertView != null) {
             itemView = convertView
         } else {
-            itemView =
-                LayoutInflater.from(parent?.context).inflate(R.layout.item_child, parent, false)
+            itemView = LayoutInflater.from(parent?.context).inflate(R.layout.item_child, parent, false)
         }
         itemView.findViewById<TextView>(R.id.text_name).text =
             map[titleList[groupPosition]]?.get(childPosition)
+        itemView.rootView.setOnClickListener{
+            expandAction.childClick( map[titleList[groupPosition]]?.get(childPosition)!!)
+        }
         return itemView
     }
 
     override fun isChildSelectable(groupPosition: Int, childPosition: Int): Boolean {
         return true
+    }
+    interface ExpandAction{
+        fun childClick(name:String)
     }
 }

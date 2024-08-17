@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MalumotActivity">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mac OS (Macintosh operatsion tizimi) - Apple tomonidan ishlab chiqarilgan operatsion tizimlar guruhi shaxsiy kompyuterlar Macintosh."
+        android:textSize="25sp"
+        android:padding="10dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tizim birinchilardan bo'lib foydalanuvchiga tushunish qiyin bo'lgan buyruq qatori o'rniga intuitiv grafik interfeysni taqdim etdi."
+        android:textSize="25sp"
+        android:padding="10dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Birinchi marta Mac OS birinchi Macintosh kompyuter bilan 1984 yilda taqdim etilgan. Mac OS atamasi faqat 90-yillarning o'rtalarida qo'llanila boshlandi."
+        android:textSize="25sp"
+        android:padding="10dp"/>
+
+
+</LinearLayout>
